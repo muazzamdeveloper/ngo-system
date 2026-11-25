@@ -1,0 +1,43 @@
+/* ==========================================================
+   auth.css - login and other guest pages
+   ========================================================== */
+
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.auth-brand {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.auth-brand h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.auth-title {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 1.5rem 1.25rem;
+    }
+}

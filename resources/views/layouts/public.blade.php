@@ -1,0 +1,28 @@
+@php($org = \App\Models\OrganizationSetting::current())
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title', 'Apply') | {{ $org->displayTitle() }}</title>
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/apply.css') }}">
+    @include('partials.branding-head')
+</head>
+<body class="public-page">
+    <main class="public-card">
+        <div class="public-brand">
+            @if ($org->logoUrl())
+                <img class="brand-logo-large" src="{{ $org->logoUrl() }}" alt="">
+            @endif
+            <h1>{{ $org->name }}</h1>
+            @if (filled($org->tagline))
+                <p class="brand-tagline">{{ $org->tagline }}</p>
+            @endif
+        </div>
+
+        @yield('content')
+    </main>
+    <script src="{{ asset('js/apply.js') }}" defer></script>
+</body>
+</html>

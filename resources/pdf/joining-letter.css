@@ -1,0 +1,38 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;height:100%;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#111a31}
+@page{size:A4 portrait;margin:0}
+body{font-family:Arial,Helvetica,sans-serif}
+/* NOTE: Dompdf ignores box-sizing:border-box. Never combine a fixed width with horizontal padding, or a fixed
+   height with vertical padding, on the same box (it grows past the A4 page -> clipped text / blank 2nd page). */
+.joining-letter-page{position:relative;height:297mm;overflow:hidden;background:#fff;padding:0 12.5mm}
+.jl-header{height:50mm;padding-top:7mm;display:table;table-layout:fixed;width:100%}
+.jl-brand,.jl-authority{display:table-cell;vertical-align:top}
+.jl-brand{width:63%;text-align:left}
+.jl-authority{width:37%;text-align:right;padding-top:1.5mm}
+.jl-logo{display:block;width:auto;max-width:42mm;max-height:22mm;object-fit:contain;margin:0 0 1.5mm 1mm}
+.jl-site-title{font-size:8.4mm;line-height:1.05;font-weight:700;color:#111a31;margin-bottom:2.2mm;word-wrap:break-word}
+.jl-address{font-size:5.15mm;line-height:1.28;color:#111a31;word-wrap:break-word}
+.jl-udyam{font-size:5.2mm;line-height:1.2;margin-bottom:12mm;color:#111a31;word-wrap:break-word}
+.jl-authority-name{font-size:6.8mm;line-height:1.08;font-weight:700;color:#111a31;word-wrap:break-word}
+.jl-authority-role{font-size:5.1mm;line-height:1.2;margin-top:1.5mm;color:#111a31;word-wrap:break-word}
+.jl-authority-phone{font-size:5.1mm;line-height:1.2;margin-top:1.5mm;color:#111a31;word-wrap:break-word}
+.jl-red-line{height:1mm;background:#ed1b2f;width:100%;margin:0}
+.jl-date{text-align:right;font-size:5.1mm;line-height:1.2;margin-top:6mm;color:#111a31}
+.jl-title{text-align:center;font-size:8.2mm;line-height:1.15;font-weight:700;color:#111;margin:7mm 0 6mm}
+.jl-body{font-size:4.7mm;line-height:1.38;color:#111a31;height:168mm;overflow:hidden}
+.jl-body p{margin:0 0 4mm}
+.jl-body strong{font-weight:700}
+.jl-body ol{margin:0 0 4mm 10mm;padding-left:6mm}
+.jl-body li{padding-left:2mm;margin:0 0 1mm}
+.jl-signature-block{position:absolute;left:12.5mm;bottom:24mm;color:#111a31}
+.jl-best-regards{font-size:5.05mm;line-height:1.2;margin-bottom:1mm}
+.jl-signature{color:#111;white-space:nowrap}
+.jl-signature-role{font-size:5mm;line-height:1.2;margin-top:1mm}
+.jl-footer{position:absolute;left:0;bottom:0;width:210mm;height:16mm;background:#ed0f22;color:#fff;font-size:4.8mm;font-weight:400}
+.jl-footer-inner{display:table;table-layout:fixed;width:185mm;height:16mm;margin:0 auto}
+.jl-footer-phone,.jl-footer-email{display:table-cell;vertical-align:middle;white-space:nowrap; padding-top: 10px;}
+.jl-footer-phone{width:38%}
+.jl-footer-email{width:62%}
+.jl-footer-email{text-align:right;}
+/* real PNG icons (the old ☎ / ✉ characters printed as "?" in Dompdf) */
+.jl-icon{width:5.6mm;height:5.6mm;vertical-align:middle;margin-right:3mm}

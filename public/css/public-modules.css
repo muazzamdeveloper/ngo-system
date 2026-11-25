@@ -1,0 +1,146 @@
+/* ==========================================================
+   public-modules.css - styles for the public pages of the admin modules
+   (events, projects, campaigns, gallery, videos, policies, donate, volunteer, popup).
+   Loaded by layouts/site after site.css. Uses the theme variables.
+   ========================================================== */
+
+.page-intro { text-align: center; padding: 28px 16px 14px; max-width: 760px; margin: 0 auto; }
+.page-intro h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--color-primary, #0f172a); }
+.page-intro p { margin: 0; color: #475569; }
+.card-public { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 22px; box-shadow: 0 8px 26px rgba(15,23,42,.06); }
+.card-public h2 { margin: 0 0 10px; font-size: 1.15rem; }
+.form-public .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px 16px; }
+.form-public .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.form-public .form-label { font-weight: 600; font-size: .9rem; }
+.form-public .form-input { width: 100%; box-sizing: border-box; border: 1px solid #cbd5e1; border-radius: 10px; padding: 10px 12px; font: inherit; }
+.form-public .form-error { color: #b91c1c; font-size: .82rem; }
+.form-public .req { color: #dc2626; }
+.form-public .btn { background: var(--color-accent, #f97316); color: #fff; border: 0; border-radius: 10px; padding: 12px 18px; font-weight: 700; cursor: pointer; }
+.form-public .btn-block { width: 100%; }
+.hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.donate-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr); gap: 20px; max-width: 1080px; margin: 0 auto 40px; padding: 0 16px; align-items: start; }
+.donate-grid-single { max-width: 820px; margin: 0 auto 40px; padding: 0 16px; }
+.donate-qr { max-width: 220px; width: 100%; border-radius: 12px; border: 1px solid #e2e8f0; display: block; margin: 0 auto 12px; }
+.empty-public { text-align: center; color: #64748b; padding: 30px 0; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.public-card { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 8px 26px rgba(15,23,42,.06); display: flex; flex-direction: column; }
+.public-card img { width: 100%; height: 170px; object-fit: cover; display: block; }
+.public-card-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.public-card h2 { margin: 0; font-size: 1.05rem; }
+.public-card p { margin: 0; color: #475569; font-size: .92rem; }
+.public-date { color: var(--color-accent, #f97316); font-weight: 700; font-size: .82rem; margin: 0; }
+.read-more { color: var(--color-primary, #0f766e); font-weight: 700; text-decoration: none; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.photo-card { margin: 0; border-radius: 14px; overflow: hidden; position: relative; background: #f1f5f9; }
+.photo-card img { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform .3s; }
+.photo-card:hover img { transform: scale(1.04); }
+.photo-card figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 8px 10px; background: linear-gradient(transparent, rgba(0,0,0,.7)); color: #fff; font-size: .86rem; }
+.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.video-card iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 14px; display: block; background: #000; }
+.video-card h2 { font-size: 1rem; margin: 8px 0 0; }
+.public-article { max-width: 820px; margin: 24px auto 40px; padding: 0 16px; }
+.public-article h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 6px 0 14px; }
+.public-hero { width: 100%; border-radius: 16px; margin: 12px 0 18px; }
+.prose { line-height: 1.7; color: #1e293b; }
+.prose h2, .prose h3 { margin-top: 1.2em; }
+.prose img { max-width: 100%; height: auto; border-radius: 10px; }
+.pagination-public { text-align: center; padding: 20px 0 40px; }
+.policy-public { max-width: 860px; margin: 0 auto 40px; padding: 0 16px; }
+.policy-section { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px; margin-bottom: 16px; }
+.policy-section h2 { margin: 0 0 10px; font-size: 1.1rem; color: var(--color-primary, #0f172a); }
+.policy-section h2 i { margin-right: 6px; color: var(--color-accent, #f97316); }
+.site-popup { position: fixed; inset: 0; background: rgba(15,23,42,.55); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 1000; }
+.site-popup[hidden] { display: none; }
+.site-popup-card { position: relative; background: #fff; border-radius: 18px; padding: 24px; max-width: 460px; width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,.3); text-align: center; }
+.site-popup-card h2 { margin: 6px 0 8px; font-size: 1.3rem; color: var(--color-primary, #0f172a); }
+.site-popup-card p { color: #475569; margin: 0 0 14px; }
+.site-popup-card .btn { display: inline-block; background: var(--color-accent, #f97316); color: #fff; padding: 11px 20px; border-radius: 10px; text-decoration: none; font-weight: 700; }
+.site-popup-close { position: absolute; top: 8px; right: 10px; background: none; border: 0; font-size: 1.6rem; line-height: 1; cursor: pointer; color: #475569; }
+.site-popup-image { width: 100%; max-height: 200px; object-fit: cover; border-radius: 12px; }
+@media (max-width: 760px) { .donate-grid, .form-public .form-grid { grid-template-columns: 1fr; } }
+
+/* Config-defined content pages (/page/{slug}) */
+.page-eyebrow { display: inline-block; color: var(--color-accent, #f97316); font-weight: 800; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
+.content-page { display: grid; gap: 22px; }
+.content-heading { margin: 10px 0 0; font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--color-primary, #0f172a); }
+.content-text { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px; }
+.content-figure { margin: 0; }
+.content-figure img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 14px; display: block; }
+
+/* Activity list pages: campaign cards and event date badges */
+.campaign-card .progress { height: 8px; border-radius: 999px; background: #e2e8f0; overflow: hidden; margin: 4px 0; }
+.campaign-card .progress span { display: block; height: 100%; background: linear-gradient(90deg, var(--color-primary, #0b5e5e), var(--color-accent, #f26b4f)); border-radius: 999px; }
+.campaign-figures { display: flex; justify-content: space-between; gap: 8px; font-size: .88rem; color: #475569; flex-wrap: wrap; }
+.campaign-figures strong { color: #0f172a; }
+.campaign-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+.campaign-actions .btn { background: var(--color-primary, #0b5e5e); color: #fff; text-decoration: none; border: 0; border-radius: 10px; padding: 9px 14px; font-weight: 700; font-size: .88rem; }
+.campaign-actions .btn-small.btn-light { background: #fff; color: #0f172a; border: 1px solid #cbd5e1; }
+.campaign-actions .btn:not(.btn-light) { background: var(--color-accent, #f26b4f); }
+.public-card .public-date { display: inline-block; background: var(--color-accent, #f26b4f); color: #fff; padding: 4px 10px; border-radius: 8px; font-size: .78rem; width: fit-content; }
+
+/* Contact Us */
+.contact-wrap { max-width: 760px; margin: 24px auto 40px; padding: 0 16px; }
+.contact-form-card { padding: 24px; }
+.contact-form-card h2 { margin-bottom: 14px; }
+.contact-form-card .notice-success { background: #dcfce7; color: #166534; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; }
+.contact-form-card .btn { background: var(--color-accent, #f26b4f); color: #fff; }
+
+/* Donate page: form on the left, UPI details on the right */
+.donate-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; max-width: 1080px; margin: 0 auto 40px; padding: 0 16px; align-items: start; }
+.donate-form { padding: 24px; display: grid; gap: 14px; }
+.donate-aside { padding: 22px; display: grid; gap: 12px; justify-items: center; text-align: center; position: sticky; top: 16px; }
+.donate-aside h2 { margin: 0; color: var(--color-primary, #0b5e5e); }
+.donate-aside .donate-qr { width: 100%; max-width: 240px; }
+.donate-upi { font-size: 1rem; margin: 0; }
+.amount-fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
+.amount-fieldset legend { padding: 0; margin-bottom: 6px; }
+.amount-chips { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+.amount-chip { border: 1px solid #cbd5e1; background: #fff; border-radius: 12px; padding: 12px 8px; font-weight: 800; font-size: 1rem; cursor: pointer; color: #0f172a; }
+.amount-chip:hover, .amount-chip.is-selected { border-color: var(--color-accent, #f26b4f); background: #fff7f4; color: var(--color-accent, #f26b4f); }
+.donate-submit { background: var(--color-accent, #f26b4f); color: #fff; border: 0; border-radius: 12px; padding: 14px; font-weight: 800; font-size: 1rem; cursor: pointer; }
+.donate-form .span-all { grid-column: 1 / -1; }
+@media (max-width: 860px) { .donate-layout { grid-template-columns: 1fr; } .donate-aside { position: static; } .amount-chips { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+/* ---- Page sections (text, split and cards), matching the front-UI screenshots ---- */
+.cms-page { display: flex; flex-direction: column; gap: 28px; }
+.cms-section { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 32px; box-shadow: 0 4px 16px rgba(15, 23, 42, .05); }
+.cms-section-title { font-size: 1.6rem; color: #0f766e; margin: 0 0 18px; }
+.cms-split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.cms-split.cms-image-left .cms-split-media { order: -1; }
+.cms-split.cms-image-right .cms-split-media { order: 2; }
+.cms-split-media img, .cms-split .content-figure img { width: 100%; border-radius: 12px; object-fit: cover; }
+.cms-split .content-heading { font-size: 1.6rem; color: #0f5d52; margin: 0 0 12px; }
+.cms-text .content-heading { font-size: 1.6rem; color: #0f5d52; margin: 0 0 12px; }
+.cms-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.cms-card { background: #fff; border: 1px solid #e5e7eb; border-top: 4px solid #f97316; border-radius: 12px; padding: 22px; }
+.cms-card-image { width: 100%; border-radius: 10px; margin-bottom: 12px; }
+.cms-card-title { font-size: 1.05rem; margin: 0 0 8px; color: #111827; }
+.cms-card-text { font-size: .92rem; color: #4b5563; line-height: 1.55; }
+@media (max-width: 760px) {
+    .cms-split { grid-template-columns: 1fr; }
+    .cms-split.cms-image-left .cms-split-media { order: 0; }
+    .cms-section { padding: 20px; }
+}
+
+/* Full-width sections inside the article (overrides the generic .content-page grid). */
+.content-page.cms-page { display: flex; flex-direction: column; width: 100%; }
+.cms-page > .cms-section { width: 100%; box-sizing: border-box; }
+.cms-split { width: 100%; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; }
+.cms-split-media, .cms-split-text { min-width: 0; width: 100%; }
+.cms-cards { width: 100%; }
+
+/* Text inside split and text sections sits directly on the section card, not in a second box. */
+.cms-split-text .prose, .cms-text .prose, .cms-split .content-text, .cms-text .content-text {
+    background: none; border: 0; box-shadow: none; padding: 0; margin: 0;
+}
+.cms-split-text .content-heading, .cms-text .content-heading { margin-top: 0; }
+.cms-line { margin: 0 0 8px; color: #1f2937; font-weight: 600; }
+.cms-split-text .cms-line:first-child { color: #6b7280; font-size: .95rem; text-transform: uppercase; letter-spacing: .04em; }
+
+/* List pages (news, events, campaigns, gallery) follow the screenshot header and cards. */
+.page-eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #f26b4f; margin: 0 0 6px; }
+.list-intro { padding-top: 36px; }
+.list-intro h1 { color: #0f5d52; }
+.read-more-btn { display: inline-block; align-self: flex-start; margin-top: 6px; padding: 8px 16px; border: 1.5px solid #f26b4f; color: #f26b4f; border-radius: 8px; font-weight: 600; font-size: .88rem; text-decoration: none; }
+.read-more-btn:hover { background: #f26b4f; color: #fff; }
+.public-card-body h2 { color: #0f3d3a; }

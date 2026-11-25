@@ -1,0 +1,628 @@
+/* ==========================================================
+   site.css - public pages (application form, verify page)
+   Colours come from the branding settings through the CSS
+   variables --color-primary and --color-primary-dark.
+   ========================================================== */
+
+:root {
+    --site-tint: color-mix(in srgb, var(--color-primary) 12%, #ffffff);
+    --site-radius: 16px;
+}
+
+.site-page {
+    background: #f3f5f8;
+}
+
+/* ---------- Hero ---------- */
+.site-hero {
+    padding: 2.25rem 1rem 6rem;
+    color: #fff;
+    background: var(--color-primary-dark);
+}
+
+.site-hero-inner,
+.site-main {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hero-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.4rem;
+    min-height: 3.4rem;
+    margin-bottom: 1rem;
+    padding: 0.35rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+}
+
+.hero-logo img {
+    display: block;
+    max-width: 150px;
+    max-height: 56px;
+    object-fit: contain;
+}
+
+.hero-initials {
+    padding: 0 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+}
+
+.hero-pill {
+    display: inline-block;
+    margin-bottom: 0.9rem;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+}
+
+.site-hero h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    line-height: 1.15;
+}
+
+.hero-text {
+    max-width: 640px;
+    margin: 0 0 1.25rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hero-chips li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+}
+
+.hero-chips .icon {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* ---------- Cards ---------- */
+.site-main {
+    margin-top: 1.25rem;
+    padding: 0 1rem 2.5rem;
+}
+
+.site-card {
+    margin-bottom: 1.25rem;
+    padding: 1.75rem;
+    background: #fff;
+    border: 1px solid #e6eaef;
+    border-radius: var(--site-radius);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.07);
+}
+
+.section-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.section-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    color: var(--color-primary);
+    background: var(--site-tint);
+    border-radius: 14px;
+}
+
+.section-head h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.section-head p {
+    margin: 0.15rem 0 0;
+    font-size: 0.92rem;
+    color: var(--color-muted);
+}
+
+/* ---------- Form grid ---------- */
+.site-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem 1.4rem;
+}
+
+.site-grid .span-2 {
+    grid-column: span 2;
+}
+
+.site-card .form-group {
+    margin-bottom: 0;
+}
+
+.site-card .form-label {
+    font-size: 0.92rem;
+}
+
+.site-card .form-input {
+    min-height: 3rem;
+    border-radius: 10px;
+}
+
+.site-card textarea.form-input {
+    min-height: 6.5rem;
+}
+
+.req {
+    color: var(--color-danger);
+}
+
+.opt {
+    font-weight: 400;
+    color: var(--color-muted);
+}
+
+.field-hint {
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    color: var(--color-muted);
+}
+
+.form-input:disabled {
+    color: var(--color-muted);
+    background: #f1f3f6;
+}
+
+/* ---------- Payment ---------- */
+.pay-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem 3rem;
+}
+
+.pay-qr {
+    width: 220px;
+    text-align: center;
+}
+
+.pay-qr-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 220px;
+    padding: 0.6rem;
+    background: #fff;
+    border: 2px dashed #c4ccd6;
+    border-radius: 18px;
+}
+
+.pay-qr-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.pay-fee {
+    margin: 0.7rem 0 0;
+    font-size: 0.98rem;
+}
+
+.pay-steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pay-steps li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0.7rem 0;
+}
+
+.pay-steps li span {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-primary-dark);
+    border-radius: 50%;
+}
+
+/* ---------- Upload boxes ---------- */
+.dropzone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    min-height: 8.5rem;
+    padding: 1rem;
+    text-align: center;
+    background: #fff;
+    border: 2px dashed #c4ccd6;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.dropzone:hover,
+.dropzone:focus-within {
+    border-color: var(--color-primary);
+    background: var(--site-tint);
+}
+
+.dropzone.has-file {
+    border-style: solid;
+    border-color: var(--color-primary);
+    background: var(--site-tint);
+}
+
+.dropzone .icon {
+    width: 1.7rem;
+    height: 1.7rem;
+    color: var(--color-primary);
+}
+
+.dz-title {
+    max-width: 100%;
+    overflow: hidden;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dz-hint {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+}
+
+/* The real file input covers the whole box, invisible, so it stays clickable and focusable. */
+.dz-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* ---------- Notice, submit, links ---------- */
+.site-notice {
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.25rem;
+    color: #5c4300;
+    background: #fff8e1;
+    border: 1px solid #f1d58a;
+    border-radius: 12px;
+}
+
+.site-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    min-height: 3.4rem;
+    font-size: 1.05rem;
+    border-radius: 12px;
+}
+
+.site-submit .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.site-link-line {
+    margin: 1rem 0 0;
+    text-align: center;
+    color: var(--color-muted);
+}
+
+.site-link-line a {
+    font-weight: 700;
+}
+
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+
+/* ---------- Verify page ---------- */
+.verify-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.verify-row .form-input {
+    flex: 1 1 260px;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+}
+
+.verify-row .btn {
+    min-height: 3rem;
+    padding: 0 2rem;
+}
+
+.verify-ok {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--color-success);
+}
+
+.verify-ok .section-icon {
+    color: #fff;
+    background: var(--color-success);
+}
+
+.verify-ok h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.doc-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem;
+}
+
+.doc-tile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    background: var(--color-primary);
+    border-radius: 14px;
+    transition: transform 0.12s, box-shadow 0.12s;
+}
+
+a.doc-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+}
+
+.doc-tile .icon {
+    flex-shrink: 0;
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+.doc-tile strong {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.doc-tile small {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+.doc-tile.is-disabled {
+    color: #7b8794;
+    background: #e9edf1;
+    cursor: not-allowed;
+}
+
+.doc-tile.is-disabled small {
+    opacity: 1;
+}
+
+.thanks-box {
+    text-align: center;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 900px) {
+    .site-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .site-grid,
+    .doc-tiles {
+        grid-template-columns: 1fr;
+    }
+
+    .site-grid .span-2 {
+        grid-column: auto;
+    }
+
+    .site-card {
+        padding: 1.25rem;
+    }
+
+    .site-hero {
+        padding-bottom: 5rem;
+    }
+
+    .pay-qr,
+    .pay-qr-box {
+        width: 100%;
+        max-width: 260px;
+    }
+}
+
+
+/* ==========================================================
+   Header: news ticker, name and contact, address strip
+   ========================================================== */
+.ticker {
+    color: #fff;
+    background: #14201c;
+    background: color-mix(in srgb, var(--color-primary-dark) 70%, #000);
+}
+
+.ticker-inner {
+    display: flex;
+    align-items: stretch;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ticker-label {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+    background: #fff;
+}
+
+.ticker-label .icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.ticker-window {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.ticker-move {
+    display: flex;
+    width: max-content;
+    animation: ticker-slide var(--ticker-seconds, 40s) linear infinite;
+}
+
+.ticker-window:hover .ticker-move,
+.ticker-window:focus-within .ticker-move {
+    animation-play-state: paused;
+}
+
+.ticker-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ticker-list li {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.ticker-list li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin: 0 1.1rem;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+}
+
+.ticker-list a,
+.ticker-list span {
+    padding: 0.55rem 0;
+    font-size: 0.92rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.ticker-list a:hover {
+    text-decoration: underline;
+}
+
+/* Moves right to left; the list is doubled, so -50% is exactly one full list. */
+@keyframes ticker-slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticker-window {
+        overflow-x: auto;
+    }
+
+    .ticker-move {
+        animation: none;
+    }
+
+    .ticker-list[aria-hidden="true"] {
+        display: none;
+    }
+}
+
+.social-icons {
+    display: inline-flex;
+    gap: 0.45rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: #fff;
+    background: var(--color-primary);
+    border-radius: 50%;
+    transition: transform 0.12s, background 0.12s;
+}
+
+.social-icons a:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.social-icons .icon {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+@media (max-width: 800px) {
+
+    .ticker-label {
+        padding: 0.55rem 0.7rem;
+    }
+}

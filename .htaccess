@@ -1,0 +1,19 @@
+# Safety net for hosting where the domain points at the PROJECT folder instead of its "public" folder.
+# The correct setup is still: document root = public (see SETUP_GUIDE.md, step 13.4).
+# This file only blocks direct access to private files; it does not change how the site works.
+
+Options -Indexes
+
+# Never serve hidden files (.env, .git, .htaccess ...) or the configuration files.
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^(composer\.(json|lock)|package(-lock)?\.json|artisan|phpunit\.xml|\.phpunit\.result\.cache)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Application folders are never reachable from the web.
+    RewriteRule ^(app|bootstrap|config|database|resources|routes|storage|tests|vendor|\.git)(/|$) - [F,L]
+</IfModule>

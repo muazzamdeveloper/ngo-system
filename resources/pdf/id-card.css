@@ -1,0 +1,376 @@
+/* Reporter ID Card PDF  (front = page 1, back = page 2)
+ *
+ * IMPORTANT (Dompdf): Dompdf ignores box-sizing:border-box, so any element
+ * that has a fixed width/height AND padding/border becomes BIGGER than the
+ * declared size. That was what pushed each card side past the page edge and
+ * created 2 extra blank pages (4 pages instead of 2).
+ * To make this impossible, every fixed-size block below is positioned
+ * absolutely and carries NO padding and NO border. Card edge lines are drawn
+ * with thin separate strips (.edge) instead of CSS borders.
+ *
+ * Page canvas: 368px x 574px  (96dpi)  =  276pt x 430.5pt.
+ * The PDF paper is set a hair larger (see class-pdf-generator.php) so the
+ * 574px block always fits with a safety margin.
+ */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;margin:0;padding:0}
+body{background:#fff;font-family:Arial,Helvetica,sans-serif}
+
+@page{size:276.2pt 430.7pt;margin:0}
+
+.pdf-page{
+  position:relative;
+  width:368px;
+  height:574px;
+  overflow:hidden;
+}
+/* exactly ONE break: between front (page 1) and back (page 2) */
+.front-page{page-break-after:always}
+.back-page{page-break-after:avoid}
+
+/* thin grey card edge (replaces the old CSS border) */
+.edge{position:absolute;background:#ddd}
+.edge-t{left:0;top:0;width:368px;height:2px}
+.edge-l{left:0;top:0;width:2px;height:573px}
+.edge-r{left:366px;top:0;width:2px;height:573px}
+
+/* ================= FRONT ================= */
+.front-page #container{
+  position:relative;
+  width:368px;
+  height:574px;
+  background:#fff;
+  overflow:hidden;
+}
+
+/* Header: logo + REPORTER bar + Udyam number (ends at ~147px) */
+#header{
+  position:absolute;
+  left:0;
+  top:9px;
+  width:368px;
+  text-align:center;
+}
+#header .logo{
+  display:block;
+  width:auto;
+  max-width:62%;
+  max-height:72px;
+  margin:0 auto;
+  object-fit:contain;
+}
+#header h1{
+  width:287px;
+  height:38px;
+  line-height:38px;
+  margin:6px auto 0;
+  background:#d82b16;
+  color:#fff;
+  border-radius:6px;
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:.5px;
+  text-align:center;
+}
+#header h3{
+  margin-top:5px;
+  color:#c51d16;
+  font-size:20px;
+  font-weight:700;
+  line-height:1.2;
+  text-align:center;
+}
+
+/* Profile photo (kept well below the Udyam number).
+ * photo box = 156 x 146  ->  150x140 image + 2px red frame + 1px padding.
+ * The plugin crops the uploaded photo to exactly this 150:140 shape before
+ * printing (Dompdf cannot do object-fit), so the face is never squashed. */
+#photo-box{
+  position:absolute;
+  left:28px;
+  top:180px;
+  width:156px;
+  height:146px;
+}
+#photo-box .profile-photo{
+  position:absolute;   /* absolute = always exactly at the top-left of #photo-box */
+  left:0;
+  top:0;
+  display:block;
+  width:150px;
+  height:140px;
+  background:#f2f2f2;
+  border:2px solid #df3020;
+  padding:1px;
+  object-fit:cover;
+}
+/* placeholder shown only when no photo was uploaded */
+#photo-box .profile-photo-placeholder{
+  position:relative;
+  width:156px;
+  height:146px;
+  background:#df3020;
+}
+#photo-box .profile-photo-placeholder .pp-inner{
+  position:absolute;
+  left:2px;
+  top:2px;
+  width:152px;
+  height:142px;
+  background:#f2f2f2;
+}
+/* stamp: sits on the lower-right of the photo (moved up 15px) */
+#photo-box .stamp{
+  position:absolute;
+  left:106px;
+  top:65px;
+  width:62px;
+  height:62px;
+  object-fit:contain;
+}
+
+/* Name + designation (right of photo, same look as before, moved with photo) */
+/* Dompdf ignores height on tables, so vertical-align:middle never worked.
+ * The block is placed directly: top = photo-top + (photo-height - text-height)/2  (190 + 43 = 233) */
+#name-box{
+  position:absolute;
+  left:190px;
+  top:233px;
+  width:159px;
+}
+#name-box .name-table,
+#name-box .name-cell{
+  display:block;
+  width:159px;
+  text-align:center;
+}
+#name-box h4{
+  color:#252525;
+  font-size:19px;
+  font-weight:700;
+  line-height:1.15;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+#name-box p{
+  color:#333;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.15;
+}
+
+/* Details (ID No. / Phone / Aadhar / Work Area / State) */
+#third-con{
+  position:absolute;
+  left:24px;
+  top:344px;   /* moved up so 5 rows fit before the footer */
+  width:320px;
+  z-index:5;
+}
+#third-con p{
+  display:table;
+  width:100%;
+  table-layout:fixed;
+  margin-bottom:3px;   /* tightened so State row clears the red footer */
+}
+#third-con p span{
+  display:table-cell;
+  color:#222;
+  font-size:17px;
+  line-height:1.2;
+  vertical-align:top;
+}
+#third-con p span:first-child{
+  width:45%;
+  font-weight:700;
+  text-align:left;
+  padding-right:10px;
+}
+#third-con p span:last-child{
+  width:55%;
+  font-weight:500;
+  text-align:left;
+  padding-left:10px;
+  white-space:nowrap;
+}
+
+/* Footer */
+#for-con{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:368px;
+  height:118px;
+  background:#d92516;
+  overflow:hidden;
+}
+#for-con::before{
+  content:"";
+  position:absolute;
+  left:-12%;
+  top:-50px;
+  width:125%;
+  height:100px;
+  background:#fff;
+  border-bottom:4px solid #171c68;
+  border-radius:0 0 130px 130px;
+}
+#for-con p{
+  position:absolute;
+  left:8%;
+  bottom:10px;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  white-space:nowrap;
+}
+.card-qr{
+  position:absolute;
+  right:8%;
+  bottom:6px;
+  width:96px;
+  text-align:center;
+  z-index:2;
+}
+.card-qr-label{
+  display:block;
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  line-height:1;
+  margin-bottom:3px;
+}
+#for-con .card-qr img{
+  display:block;
+  width:84px;
+  height:84px;
+  margin:0 auto;
+  background:#fff;
+  object-fit:contain;
+}
+
+/* ================= BACK ================= */
+.back-page .card{
+  position:relative;
+  width:368px;
+  height:574px;
+  background:#fff;
+  overflow:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+}
+.back-page .header{
+  position:absolute;
+  left:0;
+  top:12px;
+  width:368px;
+  text-align:center;
+}
+.back-page .logo{
+  width:auto;
+  max-width:250px;
+  max-height:82px;
+  display:inline-block;
+  border-radius:7px;
+  object-fit:contain;
+}
+.back-page .title{
+  position:absolute;
+  left:40px;
+  top:130px;
+  width:288px;
+  height:42px;
+  line-height:42px;
+  background:#d82b16;
+  color:#fff;
+  border-radius:6px;
+  font-size:22px;
+  font-weight:700;
+  text-align:center;
+}
+.back-page .terms{
+  position:absolute;
+  left:18px;
+  top:185px;
+  width:331px;
+}
+.back-page .terms ul{
+  margin:0;
+  padding-left:24px;
+}
+.back-page .terms li{
+  margin-bottom:8px;
+  color:#111;
+  font-size:11.5px;
+  font-weight:600;
+  line-height:1.25;
+}
+
+/* Contact rows: address / email / phone, each with its own icon */
+.back-page .contact{
+  position:absolute;
+  left:22px;
+  bottom:101px;
+  width:328px;
+}
+.back-page .contact-row{
+  display:table;
+  width:100%;
+  margin-bottom:12px;
+}
+.back-page .contact-icon{
+  display:table-cell;
+  width:30px;
+  vertical-align:top;
+  text-align:center;
+}
+.back-page .contact-icon img{
+  display:block;
+  width:17px;
+  height:17px;
+  margin:0 auto;
+}
+.back-page .contact-text{
+  display:table-cell;
+  vertical-align:top;
+  padding-left:7px;
+  padding-top:2px;
+  color:#111;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.25;
+}
+.back-page .address{
+  font-size:10px;
+  font-weight:700;
+  line-height:1.25;
+}
+.back-page .footer{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:368px;
+  height:92px;
+  background:#d92516;
+  overflow:hidden;
+}
+.back-page .footer::before{
+  content:"";
+  position:absolute;
+  left:-15%;
+  top:-55px;
+  width:130%;
+  height:88px;
+  background:#fff;
+  border-bottom:4px solid #171c68;
+  border-radius:0 0 160px 160px;
+}
+.back-page .website{
+  position:absolute;
+  left:0;
+  bottom:24px;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  font-size:19px;
+  font-weight:700;
+}

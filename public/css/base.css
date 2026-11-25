@@ -1,0 +1,158 @@
+/* ==========================================================
+   base.css - global variables, reset, and reusable elements
+   ========================================================== */
+
+:root {
+    --color-primary: #1f6f5c;
+    --color-primary-dark: #17564a;
+    --color-accent: #e8a33d;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1f2933;
+    --color-muted: #6b7785;
+    --color-border: #d9dee3;
+    --color-danger: #c0392b;
+    --color-danger-bg: #fdecea;
+    --color-success: #2e7d4f;
+    --color-success-bg: #e8f5ee;
+
+    --radius: 8px;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-text);
+    background: var(--color-bg);
+}
+
+h1, h2, h3, h4 {
+    margin: 0 0 0.5em;
+    line-height: 1.25;
+}
+
+a {
+    color: var(--color-primary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    font: inherit;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-primary);
+    border: 0;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: var(--color-primary-dark);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* ---------- Forms ---------- */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    font: inherit;
+    color: var(--color-text);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+.form-input:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-error {
+    margin-top: 0.3rem;
+    font-size: 0.875rem;
+    color: var(--color-danger);
+}
+
+/* ---------- Alerts ---------- */
+.alert {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+}
+
+.alert-danger {
+    color: var(--color-danger);
+    background: var(--color-danger-bg);
+}
+
+.alert-success {
+    color: var(--color-success);
+    background: var(--color-success-bg);
+}
+
+/* ---------- Brand logo ---------- */
+.brand-logo {
+    flex-shrink: 0;
+    max-width: 3.2rem;
+    max-height: 2.6rem;
+    padding: 2px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.brand-logo-large {
+    display: block;
+    max-width: 180px;
+    max-height: 90px;
+    margin: 0 auto 0.6rem;
+    object-fit: contain;
+}
+
+.brand-tagline {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}

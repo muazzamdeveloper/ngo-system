@@ -1,0 +1,137 @@
+/* ==========================================================
+   site-chrome.css - the public header and footer (chrome-* classes).
+   Colours come from the theme variables set in partials/branding-head.
+   ========================================================== */
+
+:root {
+    --chrome-primary: var(--color-primary, #0b5e5e);
+    --chrome-accent: var(--color-accent, #f26b4f);
+    --chrome-top: var(--color-accent, #f26b4f);
+    --chrome-navy: #06141c;
+    --chrome-card: #0f222c;
+}
+
+.chrome-topbar { background: var(--chrome-top); color: #fff; }
+.chrome-topbar-inner { max-width: 1280px; margin: 0 auto; padding: 6px 16px; display: flex; align-items: center; gap: 12px; }
+.chrome-social { display: flex; gap: 6px; }
+.chrome-social .social-icons { display: flex; gap: 6px; }
+.chrome-social a { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: var(--chrome-top); display: inline-flex; align-items: center; justify-content: center; }
+.chrome-social .icon { width: 16px; height: 16px; }
+.chrome-ticker { flex: 1 1 auto; display: flex; align-items: center; gap: 10px; min-width: 0; }
+.chrome-ticker-label { flex: 0 0 auto; background: var(--chrome-primary); color: #fff; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: .85rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.chrome-ticker .ticker-window { flex: 1; background: #fff; color: #1f2937; border-radius: 6px; overflow: hidden; }
+.chrome-phone { flex: 0 0 auto; color: #fff; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.chrome-phone .icon { width: 18px; height: 18px; }
+
+.chrome-brandbar { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+.chrome-brandbar-inner { max-width: 1280px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.chrome-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--chrome-primary); min-width: 0; }
+.chrome-logo { width: 58px; height: 58px; object-fit: contain; border-radius: 50%; flex: 0 0 auto; }
+.chrome-logo-initials { display: inline-flex; align-items: center; justify-content: center; background: var(--chrome-primary); color: #fff; font-weight: 800; }
+.chrome-brand-name { font-size: clamp(1.1rem, 2.2vw, 1.6rem); font-weight: 800; letter-spacing: .2px; }
+.chrome-donate { background: var(--chrome-accent); color: #fff; text-decoration: none; font-weight: 800; padding: 11px 20px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase; font-size: .9rem; box-shadow: 0 6px 16px rgba(0,0,0,.12); }
+.chrome-donate .icon { width: 18px; height: 18px; }
+
+.chrome-menu { background: var(--chrome-primary); }
+.chrome-menu-inner { max-width: 1280px; margin: 0 auto; padding: 0 12px; }
+.chrome-menu-list { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; flex-wrap: wrap; }
+.chrome-menu-list > li { position: relative; }
+.chrome-menu-list > li > a,
+.chrome-menu-list > li > .dropdown-toggle { display: inline-flex; align-items: center; gap: 5px; padding: 12px 8px; color: #fff; text-decoration: none; font: inherit; font-size: .76rem; font-weight: 700; letter-spacing: .3px; background: none; border: 0; cursor: pointer; white-space: nowrap; }
+.chrome-menu-list .icon { width: 16px; height: 16px; }
+.chrome-menu-list .chevron { width: 13px; height: 13px; transition: transform .2s; }
+.chrome-menu-list > li > a:hover,
+.chrome-menu-list > li > .dropdown-toggle:hover,
+.chrome-menu-list > li > a.is-current,
+.chrome-menu-list > li.is-current > .dropdown-toggle { background: rgba(255,255,255,.12); }
+.chrome-menu-list > li > a.is-current,
+.chrome-menu-list > li.is-current > .dropdown-toggle { box-shadow: inset 0 -3px 0 var(--chrome-accent); }
+.dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 230px; list-style: none; margin: 0; padding: 6px 0; background: #fff; border-radius: 0 0 10px 10px; box-shadow: 0 14px 30px rgba(0,0,0,.18); z-index: 50; }
+.has-dropdown.is-open > .dropdown, .has-dropdown:focus-within > .dropdown { display: block; }
+.has-dropdown.is-open > .dropdown-toggle .chevron { transform: rotate(180deg); }
+.dropdown a { display: block; padding: 10px 16px; color: #1f2937; text-decoration: none; font-size: .92rem; font-weight: 600; }
+.dropdown a:hover, .dropdown a.is-current { background: #f1f5f9; color: var(--chrome-primary); }
+.chrome-menu-toggle { display: none; width: 100%; background: none; border: 0; color: #fff; padding: 12px; cursor: pointer; }
+.chrome-menu-toggle span:not(.sr-only) { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.chrome-footer { background: var(--chrome-navy); color: #cbd5e1; margin-top: 40px; }
+.chrome-footer-inner { max-width: 1280px; margin: 0 auto; padding: 28px 16px 0; }
+.chrome-info-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+.chrome-info-box { background: var(--chrome-card); border: 1px solid #1d3a47; border-radius: 12px; padding: 22px 16px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.chrome-info-icon { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--chrome-accent); color: #facc15; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+.chrome-info-box strong { color: #fff; text-transform: uppercase; font-size: .9rem; letter-spacing: .4px; }
+.chrome-info-box span, .chrome-info-box a { color: #94a3b8; font-size: .9rem; text-decoration: none; }
+.chrome-footer-cols { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 28px; margin-top: 28px; padding-top: 24px; border-top: 1px solid #1d3a47; }
+.chrome-footer-logo { width: 72px; height: 72px; border-radius: 50%; background: #fff; padding: 4px; object-fit: contain; }
+.chrome-footer-about p { margin: 12px 0 18px; font-size: .92rem; line-height: 1.6; }
+.chrome-footer-heading { color: #fff; font-size: 1rem; margin: 0 0 14px; padding-bottom: 8px; position: relative; font-weight: 700; }
+.chrome-footer-heading::after { content: ""; position: absolute; left: 0; bottom: 0; width: 44px; height: 3px; background: var(--chrome-accent); border-radius: 3px; }
+.chrome-footer-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.chrome-footer-links a { color: #cbd5e1; text-decoration: none; font-size: .95rem; }
+.chrome-footer-links a::before { content: "›"; color: var(--chrome-accent); margin-right: 8px; font-weight: 700; }
+.chrome-footer-links a:hover { color: #fff; }
+.chrome-footer .social-icons { display: flex; gap: 10px; flex-wrap: wrap; }
+.chrome-footer .social-icons a { width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #fff; background: var(--chrome-primary); }
+.chrome-footer .social-icons .icon { width: 18px; height: 18px; }
+.chrome-support-card { background: var(--chrome-card); border: 1px solid #1d3a47; border-radius: 12px; padding: 16px; text-align: center; }
+.chrome-support-title { color: #facc15; font-weight: 800; font-size: .82rem; display: inline-flex; align-items: center; gap: 6px; text-transform: uppercase; }
+.chrome-support-qr { display: block; width: 140px; height: 140px; margin: 12px auto; background: #fff; padding: 6px; border-radius: 10px; }
+.chrome-support-donate { display: inline-flex; align-items: center; gap: 6px; background: var(--chrome-accent); color: #fff; font-weight: 800; padding: 10px 16px; border-radius: 10px; text-decoration: none; width: 100%; justify-content: center; box-sizing: border-box; }
+.chrome-support-phone { display: block; margin-top: 8px; color: #94a3b8; font-size: .88rem; }
+.chrome-legal-bar { margin-top: 28px; padding: 16px 0; border-top: 1px solid #1d3a47; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: .88rem; }
+.chrome-legal-bar nav { display: flex; gap: 14px; flex-wrap: wrap; }
+.chrome-legal-bar a { color: #94a3b8; text-decoration: none; }
+.chrome-legal-bar a:hover { color: #fff; }
+.chrome-credit { text-align: center; padding: 14px 0 26px; margin: 0; font-size: .88rem; background: #040d13; color: #94a3b8; margin: 0 -16px; }
+.chrome-credit strong { color: var(--chrome-accent); }
+
+.chrome-float { position: fixed; left: 14px; bottom: 16px; display: flex; flex-direction: column; gap: 10px; z-index: 900; }
+.chrome-float-btn { width: 48px; height: 48px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+.chrome-float-call { background: #1e3a8a; }
+.chrome-float-wa { background: #22c55e; }
+.chrome-float-pill { position: fixed; bottom: 70px; right: 16px; background: #0f172a; color: #fff; padding: 10px 16px; border-radius: 999px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+.chrome-float-donate { bottom: 16px; background: var(--chrome-accent); }
+.chrome-float .chrome-float-pill { position: fixed; }
+.chrome-float-pill .icon, .chrome-float-donate .icon { width: 16px; height: 16px; }
+.chrome-float .icon { width: 22px; height: 22px; }
+
+@media (max-width: 1080px) {
+    .chrome-info-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .chrome-footer-cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 960px) {
+    .chrome-topbar-inner { flex-wrap: wrap; }
+    .chrome-ticker { order: 3; flex-basis: 100%; }
+    .chrome-menu-toggle { display: block; }
+    .chrome-menu-list { display: none; flex-direction: column; align-items: stretch; padding-bottom: 8px; }
+    .chrome-menu-list.is-open { display: flex; }
+    .chrome-menu-list > li > a, .chrome-menu-list > li > .dropdown-toggle { width: 100%; box-sizing: border-box; padding: 12px 16px; }
+    .dropdown { position: static; box-shadow: none; border-radius: 0; background: rgba(0,0,0,.15); }
+    .dropdown a { color: #fff; }
+    .dropdown a:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .has-dropdown:focus-within > .dropdown { display: none; }
+    .has-dropdown.is-open > .dropdown { display: block; }
+}
+@media (max-width: 600px) {
+    .chrome-info-grid, .chrome-footer-cols { grid-template-columns: 1fr; }
+    .chrome-brandbar-inner { padding: 8px 12px; }
+    .chrome-logo { width: 46px; height: 46px; }
+    .chrome-donate { padding: 9px 12px; font-size: .78rem; }
+    .chrome-float-pill { right: 12px; width: 48px; height: 48px; padding: 0; justify-content: center; border-radius: 50%; }
+    .chrome-float-label { display: none; }
+    .chrome-float { left: 12px; bottom: 12px; }
+    .chrome-float-donate { bottom: 12px; right: 12px; }
+    .chrome-float-pill:not(.chrome-float-donate) { bottom: 68px; }
+}
+
+/* Language selector (Google Translate widget, placed in the brand bar). */
+.chrome-lang { display: inline-flex; align-items: center; min-width: 0; }
+#google_translate_element { min-height: 36px; display: flex; align-items: center; }
+.chrome-lang-fallback { display: inline-block; background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 6px 10px; font-size: .82rem; color: #334155; white-space: nowrap; }
+.chrome-lang .goog-te-gadget { font-family: inherit; font-size: .82rem; color: #334155; }
+.chrome-lang .goog-te-gadget-simple { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 6px 10px; }
+.chrome-lang .goog-te-gadget-simple .goog-te-menu-value span { color: #334155; }
+.chrome-lang .goog-te-gadget-icon, .chrome-lang .goog-logo-link { display: none !important; }
+.goog-te-banner-frame.skiptranslate, .goog-te-balloon-frame { display: none !important; }
+body { top: 0 !important; }

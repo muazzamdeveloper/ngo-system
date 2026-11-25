@@ -1,0 +1,60 @@
+/* ==========================================================
+   home-v2.css - the home page sections (hm-* classes).
+   ========================================================== */
+.home-main { padding: 0 0 20px; }
+.hm { max-width: 1280px; margin: 0 auto; padding: 0 16px; display: grid; gap: 28px; }
+.hm-hero { position: relative; border-radius: 16px; overflow: hidden; margin-top: 16px; }
+.hm-hero-slide { margin: 0; position: relative; }
+.hm-hero img { width: 100%; max-height: 460px; object-fit: cover; display: block; }
+.hm-hero figcaption { position: absolute; left: 0; bottom: 0; right: 0; padding: 14px 18px; background: linear-gradient(transparent, rgba(0,0,0,.7)); color: #fff; font-weight: 700; font-size: 1.1rem; }
+.hm-hero-slide.is-hidden { display: none; }
+.hm-quick { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; }
+.hm-quick a { background: var(--color-primary, #0b5e5e); color: #fff; text-decoration: none; font-weight: 700; font-size: .9rem; padding: 14px 10px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; }
+.hm-quick .icon { width: 18px; height: 18px; flex: 0 0 auto; }
+.hm-columns { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+.hm-panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.hm-heading { margin: 0; font-size: clamp(1.25rem, 2.3vw, 1.6rem); text-align: center; color: var(--color-primary, #0b5e5e); padding: 12px 16px; border-radius: 12px; background: #f1f5f9; border-bottom: 3px solid var(--color-accent, #f26b4f); }
+.hm-section { display: grid; gap: 16px; }
+.hm-section > .hm-heading { }
+.hm-event { display: flex; gap: 12px; align-items: center; text-decoration: none; color: inherit; border-bottom: 1px solid #eef2f7; padding-bottom: 10px; }
+.hm-event-date { flex: 0 0 auto; background: var(--color-accent, #f26b4f); color: #fff; font-weight: 800; padding: 8px 10px; border-radius: 10px; font-size: .85rem; }
+.hm-event strong { display: block; }
+.hm-event small { color: #64748b; display: block; }
+.hm-activity img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; }
+.hm-activity h3 { font-size: 1rem; margin: 8px 0 4px; }
+.hm-activity p { margin: 0; color: #475569; font-size: .92rem; }
+.hm-person { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.hm-person img { width: 150px; height: 150px; border-radius: 14px; object-fit: cover; border: 3px solid var(--color-primary, #0b5e5e); }
+.hm-person span { color: var(--color-accent, #f26b4f); font-weight: 700; }
+.hm-empty { color: #64748b; margin: 0; font-size: .92rem; }
+.hm-button { display: inline-flex; justify-content: center; align-items: center; gap: 6px; background: var(--color-primary, #0b5e5e); color: #fff; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; font-size: .9rem; align-self: flex-start; }
+.hm-button-accent { background: var(--color-accent, #f26b4f); }
+.hm-about { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 22px; display: grid; gap: 16px; }
+.hm-about-inner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.6fr); gap: 20px; align-items: start; }
+.hm-about-img { width: 100%; border-radius: 14px; object-fit: cover; max-height: 320px; }
+.hm-cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+.hm-cards-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.hm-card, .hm-objective, .hm-quote { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 8px 22px rgba(15,23,42,.05); }
+.hm-card img, .hm-objective img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.hm-card-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.hm-card h3, .hm-objective h3 { margin: 0; font-size: 1.05rem; }
+.hm-card p, .hm-objective p { margin: 0; color: #475569; font-size: .92rem; }
+.hm-objective { padding-bottom: 16px; }
+.hm-objective h3 { padding: 14px 16px 4px; }
+.hm-objective p { padding: 0 16px; }
+.video-card iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; background: #000; }
+.hm-photos { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+.hm-photo img { width: 100%; height: 210px; object-fit: cover; border-radius: 14px; display: block; }
+.hm-donors { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+.hm-donor { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px; }
+.hm-quote { padding: 18px; text-align: center; }
+.hm-quote .stars { color: #f59e0b; letter-spacing: 2px; }
+.hm-quote p { font-style: italic; color: #334155; }
+.hm-quote cite { font-style: normal; display: flex; flex-direction: column; gap: 2px; }
+.hm-quote cite span { color: #64748b; font-size: .88rem; }
+.hm-partners { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 14px; align-items: center; }
+.hm-partners img { width: 100%; max-height: 70px; object-fit: contain; background: #fff; border-radius: 10px; padding: 8px; border: 1px solid #e2e8f0; }
+.hm-partners span { font-weight: 700; color: #334155; text-align: center; }
+@media (max-width: 1080px) { .hm-donors, .hm-partners { grid-template-columns: repeat(3, minmax(0,1fr)); } .hm-quick { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width: 960px) { .hm-columns, .hm-cards, .hm-cards-3, .hm-about-inner { grid-template-columns: 1fr; } .hm-photos { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 600px) { .hm-quick, .hm-donors, .hm-partners { grid-template-columns: repeat(2, minmax(0,1fr)); } .hm-photos { grid-template-columns: 1fr; } }
